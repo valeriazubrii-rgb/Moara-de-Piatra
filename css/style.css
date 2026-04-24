@@ -19,7 +19,7 @@ main {
 }
 
 header {
-    background-color: rgba(207, 236, 243, 0.8) !important;
+    background-color: rgba(146, 171, 228, 0.8) !important;
     position: fixed;
     width: 100%;
     top: 0;
@@ -229,7 +229,7 @@ body.dark .note {
 
 footer {
     min-height: 80px;
-    background: #cfecf3ca;
+    background: #92abe4;
     text-align: center;
     color: white;
     padding-top: 35px;
