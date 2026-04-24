@@ -19,7 +19,7 @@ main {
 }
 
 header {
-    background: #cfecf3;
+    background: #cfecf3ca;
     position: fixed;
     width: 100%;
     top: 0;
@@ -227,13 +227,12 @@ body.dark .note {
 
 footer {
     min-height: 80px;
-    background:#cfecf3;
+    background: #cfecf3ca;
     text-align: center;
     color: white;
     padding-top: 35px;
     margin-top: auto;
 }
-
 p {
     line-height: 150%;
     text-indent: 30px;
