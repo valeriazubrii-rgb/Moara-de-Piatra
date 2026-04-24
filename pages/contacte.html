@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="icon" href="../images/favicon.png">
+    <script src="../js/script.js"></script>
+    <title>Răuțel - Localitatea mea</title>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="../images/favicon2.png">
+        <navbar>
+            <a href="../index.html">Acasă</a>
+            <a href="despre.html">Despre</a>
+            <a href="exploreaza.html">Explorează</a>
+            <a href="contacte.html">Contacte</a>
+            <a href="parteneri.html">Parteneri</a>
+        </navbar>
+        <i id="hamburger" onclick="mobileMenu()" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <section>
+            <h1 class="centered">Contacte</h1>
+            <div class="row">
+                <div class="col-50">
+                    <div class="contacte">
+                        <h2 class="centered">Date de contact</h2>
+                        <b>Email:</b>
+                        <a href="mailto:pmoaradepiatra@mail.ru">pmoaradepiatra@mail.ru</a>
+                        </br></br>
+                        <b>Adresa </b>
+                        <a href="s. Moara de Piatră, Raionul Drochia, MD5222">s. Moara de Piatră, Raionul Drochia,
+                            MD5222</a>
+                        </br></br>
+                        <b>Numărul de telefon: </b>
+                        <a href="tel:+373 (252) 31234">+373 (252) 31234</a>
+                        </br>
+                    </div>
+                </div>
+                <div class="col-50">
+                    <div class="cform">
+                        <h2 class="centered">Contactează primăria</h2>
+                        <input type="text" id="cf-nume" placeholder="Nume Prenume">
+                        <input type="text" id="cf-subiect" placeholder="Subiectul">
+                        <textarea id="cf-mesaj" rows="5" placeholder="Mesajul"></textarea>
+
+                        <!-- Atașare fișiere -->
+                        <div style="margin-bottom: 10px;">
+                            <label id="cf-file-label" onclick="document.getElementById('cf-fisier').click()" style="display:inline-block; padding: 6px 14px; background:#2d4057; color:white;
+                                border-radius:4px; cursor:pointer; font-size:14px;">
+                                <i class="fa-solid fa-paperclip"></i> Atașează fișier
+                            </label>
+                            <input type="file" id="cf-fisier" style="display:none" onchange="document.getElementById('cf-file-label').innerHTML =
+                                '<i class=\'fa-solid fa-check\'></i> ' + this.files[0].name">
+                        </div>
+
+                        <input type="button" value="Transmite" onclick="trimiteEmail()" style="cursor:pointer;">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <iframe class="harta"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7005.938988862585!2d28.002740599102786!3d47.892275557445984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40cca1e0cf88219f%3A0xa1ef523b1fbffca7!2sGimnaziul%20Moara%20de%20Piatr%C4%83!5e0!3m2!1sro!2s!4v1776970168499!5m2!1sro!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
+    <footer>
+        <span>Zubrii Valeria © 2026</span>
+    </footer>
+    <button id="dark-toggle" onclick="toggleDark()">🌙</button>
+
+    <script>
+        function trimiteEmail() {
+            const nume = document.getElementById('cf-nume').value.trim();
+            const subiect = document.getElementById('cf-subiect').value.trim();
+            const mesaj = document.getElementById('cf-mesaj').value.trim();
+
+            if (!nume || !subiect || !mesaj) {
+                alert('Te rugăm să completezi toate câmpurile.');
+                return;
+            }
+
+            const dest = 'primaria.rautel@apl.gov.md';
+            const sub = encodeURIComponent(subiect + ' - ' + nume);
+            const body = encodeURIComponent('Nume: ' + nume + '\n\n' + mesaj);
+
+            window.location.href = 'mailto:' + dest + '?subject=' + sub + '&body=' + body;
+        }
+    </script>
+</body>
+
+</html>

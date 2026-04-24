@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="icon" href="images/favicon.png">
+    <script src="js/script.js"></script>
+    
+    <title>Moara de Piatră - Localitatea mea</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/favicon2.png">
+        <navbar>
+            <a href="index.html">Acasă</a>
+            <a href="pages/despre.html">Despre</a>
+            <a href="pages/exploreaza.html">Explorează</a>
+            <a href="pages/contacte.html">Contacte</a>
+            <a href="pages/parteneri.html">Parteneri</a>
+        </navbar>
+        <i id="hamburger" onclick="mobileMenu()" class="fa-solid fa-bars"></i>
+    </header>
+    <main>
+        <section id="index">
+            <div class="index-info">
+                <h1>Moara de Piatră - satul meu</h1>
+                <br/>
+                <a href="pages/structura.html" class="link-index">Află mai mult</a>
+            </div>
+        </section>
+    </main>
+    <style>
+        /* Ajustări pentru slider să arate ca în swipe.html */
+        .slider-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: #fdfdfd;
+        }
+        .slider {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .slider img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(45, 64, 87, 0.8);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .prev:hover, .next:hover { background: #131b31; }
+    </style>
+    <script>
+    let images = [
+        "../images/slide1.jpg", 
+        "../images/slide2.jpg",
+        "../images/slide3.jpg",
+    ];
+
+    let index = 0;
+
+    function showSlide() {
+        const imgElement = document.getElementById("slide");
+        if (imgElement) {
+            imgElement.src = images[index];
+        }
+    }
+
+    function nextSlide() {
+        index = (index + 1) % images.length;
+        showSlide();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + images.length) % images.length;
+        showSlide();
+    }
+
+    let startX = 0;
+    const slideImg = document.getElementById("slide");
+
+    if (slideImg) {
+        slideImg.addEventListener("touchstart", function(e) {
+            startX = e.touches[0].clientX;
+        });
+
+        slideImg.addEventListener("touchend", function(e) {
+            let endX = e.changedTouches[0].clientX;
+            if (startX > endX + 50) nextSlide();
+            if (startX < endX - 50) prevSlide();
+        });
+    }
+</script>
+    <footer>
+        <span>Zubrii Valeria © 2026</span>
+    </footer>
+    <button id="dark-toggle" onclick="toggleDark()">🌙</button>
+</body>
+</html>
