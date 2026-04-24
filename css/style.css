@@ -19,12 +19,14 @@ main {
 }
 
 header {
-    background: #cfecf3ca;
+    background-color: rgba(207, 236, 243, 0.8) !important;
     position: fixed;
     width: 100%;
     top: 0;
     padding: 10px 15px 5px 15px;
     z-index: 1000;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 /* ===== SLIDER ===== */
